@@ -104,7 +104,13 @@ for acc in accounts:
         log.info("Added account {}{}".format(username, addl_logmsg))
         num_imported += 1
     else:
-        log.info("Account {} already known. Skipping.".format(username))
-        num_skipped += 1
+        if args.change_password:
+            log.info("Account {} already known. Changing password.".format(username))
+            account.password = acc['password']
+            account.save()
+            num_skipped += 1
+        else:
+            log.info("Account {} already known. Skipping.".format(username))
+            num_skipped += 1
 
 log.info("Done. Imported {} new accounts, skipped {} accounts.".format(num_imported, num_skipped))

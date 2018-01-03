@@ -40,6 +40,9 @@ parser.add_argument('-l', '--level',
 parser.add_argument('-cnd', '--condition',
                     help=('Account condition of imported accounts. One of [unknown, good, banned, blind, captcha]. Default: unknown'),
                     default='unknown')
+parser.add_argument('-pw', '--change-password',
+                    help='Change passwords of duplicate accounts when importing.',
+                    action='store_true', default=False)
 args = parser.parse_args()
 
 args.condition = args.condition.lower()

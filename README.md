@@ -42,6 +42,12 @@ Alternatively: With PGPool comes a tool called `pgpool-import.py` which takes a 
              Filename of a CSV file to import accounts from.
   -l LEVEL, --level LEVEL
              Trainer level of imported accounts.
+  -cnd CONDITION, --condition CONDITION
+                    Account condition of imported accounts. One of
+                    [unknown, good, banned, blind, captcha]. Default: unknown
+  -pw,      --change-password
+             Change passwords of duplicate accounts when importing
+
 ```
 The format of the CSV file should be one (and **only** one, don't mix them up!) of:
 
